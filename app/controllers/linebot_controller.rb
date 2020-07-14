@@ -19,8 +19,8 @@ class LinebotController < ApplicationController
             when Line::Bot::Event::MessageType::Text
                 e = event.message['text']
                 if e.eql?('データ確認')
-                    excel = Roo::Spreadsheet.open('C:/Users/hokudai/Desktop/Book1.xlsx')
-                    sheet = excel.sheet('sheet1')
+                    excel = Roo::Spreadsheet.open('Book1.xlsx')
+                    sheet = excel.sheet('Sheet1')
 
 
                     uri = URI.parse("https://api.line.me/v2/bot/message/push")
@@ -35,8 +35,8 @@ class LinebotController < ApplicationController
                             {
                                 "type": "text",
                                 "text": " テスト！\r\n
-                                名前: #{sheet.row(0)[0]}\r\n
-                                スプリント: #{sheet.row(0)[1]}回
+                                名前: #{sheet.row(1)[0]}\r\n
+                                スプリント: #{sheet.row(1)[1]}回
                                 "
                             }
                         ]
