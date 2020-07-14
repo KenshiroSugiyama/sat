@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem 'line-bot-api'
 gem 'dotenv-rails'
+gem 'roo', '~>2.8.0'
 
 ruby '2.6.6'
 
