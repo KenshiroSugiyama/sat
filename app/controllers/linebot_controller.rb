@@ -1,7 +1,8 @@
 class LinebotController < ApplicationController
     require 'line/bot'
 
-
+    protect_from_forgery #追記
+    
     def callback
         body = request.body.read
         signature = request.env['HTTP_X_LINE_SIGNATURE']
