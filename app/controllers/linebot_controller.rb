@@ -32,7 +32,8 @@ class LinebotController < ApplicationController
                     if e.eql?('データ確認')
                         #excel 指定
                         #name = "Book1"
-                        excel = Roo::Spreadsheet.open("../assets/Book1.xlsx")
+                        file_path = Rails.root + "/assets/Book1.xlsx"
+                        excel = Roo::Spreadsheet.open(file_path)
                         sheet = excel.sheet('Sheet1')
 
                         message = {
