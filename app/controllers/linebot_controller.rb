@@ -5,10 +5,7 @@ class LinebotController < ApplicationController
 
     protect_from_forgery 
 
-    #excel 指定
-    name = "Book1"
-    excel = Roo::Spreadsheet.open("./#{name}.xlsx")
-    sheet = excel.sheet('Sheet1')
+    
 
 
     def callback
@@ -33,12 +30,22 @@ class LinebotController < ApplicationController
                 when Line::Bot::Event::MessageType::Text
                     e = event.message['text']
                     if e.eql?('データ確認')
+                        #excel 指定
+                        name = "Book1"
+                        excel = Roo::Spreadsheet.open("./#{name}.xlsx")
+                        sheet = excel.sheet('Sheet1')
+
                         message = {
                             "type": "text",
                             "text": "名前：#{sheet.row(1)[0]}"
                           }
-                        client.reply_message(event['replyToken'], message)
+                    else
+                        message = {
+                            "type": "text",
+                            "text": "例外処理"
+                        }
                     end
+                    client.reply_message(event['replyToken'], message)
                 end
             end
         end
