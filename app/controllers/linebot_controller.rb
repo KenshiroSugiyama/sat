@@ -31,8 +31,8 @@ class LinebotController < ApplicationController
                     e = event.message['text']
                     if e.eql?('データ確認')
                         #excel 指定
-                        name = "Book1"
-                        excel = Roo::Spreadsheet.open("./#{name}.xlsx")
+                        #name = "Book1"
+                        excel = Roo::Spreadsheet.open("../assets/Book1.xlsx")
                         sheet = excel.sheet('Sheet1')
 
                         message = {
@@ -42,7 +42,7 @@ class LinebotController < ApplicationController
                     else
                         message = {
                             "type": "text",
-                            "text": "例外処理"
+                            "text": "例外処理OK!"
                         }
                     end
                     client.reply_message(event['replyToken'], message)
