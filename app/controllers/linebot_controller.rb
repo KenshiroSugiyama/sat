@@ -13,42 +13,15 @@ class LinebotController < ApplicationController
         events = client.parse_events_from(body)
     
         events.each do |event|
-          case event
-          when Line::Bot::Event::Message
-            case event.type
-            when Line::Bot::Event::MessageType::Text
-                e = event.message['text']
-                if e.eql?('データ確認')
-                    excel = Roo::Spreadsheet.open('Book1.xlsx')
-                    sheet = excel.sheet('Sheet1')
-
-
-                    uri = URI.parse("https://api.line.me/v2/bot/message/push")
-                    headers = {
-                        'Content-Type': 'application/json',
-                        'Authorization': 'Bearer ' + ENV['LINE_CHANNEL_TOKEN'],
-                    }
-                    
-                    post = {
-                        'to': "Ubb6cd737bcaea0aeb84c0465e3fff9ac",
-                        'messages': [
-                            {
-                                "type": "text",
-                                "text": " テスト！\r\n
-                                名前: #{sheet.row(1)[0]}\r\n
-                                スプリント: #{sheet.row(1)[1]}回
-                                "
-                            }
-                        ]
-                    }
-                    
-                    req = Net::HTTP.new(uri.host, uri.port)
-                    req.use_ssl = uri.scheme === "https"
-                    req.post(uri.path, post.to_json,headers)
-                            
-                end
+            case event
+            when Line::Bot::Event::Follow
+                uid = event['source']['userId']
+                message = {
+                    "type": "text",
+                    "text": "登録完了！\r\nあなたのuserIdは[#{uid}]です。\r\nuserIdを堅志郎まで送ってね！"
+                  }
+                  client.reply_message(event['replyToken'], message)
             end
-          end
         end
         head :ok
     end
