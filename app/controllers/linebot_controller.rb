@@ -5,9 +5,6 @@ class LinebotController < ApplicationController
 
     protect_from_forgery 
 
-    
-
-
     def callback
         body = request.body.read
         signature = request.env['HTTP_X_LINE_SIGNATURE']
@@ -32,7 +29,7 @@ class LinebotController < ApplicationController
                     if e.eql?('データ確認')
                         #excel 指定
                         #name = "Book1"
-                        file_path = Rails.root + "/assets/Book1.xlsx"
+                        file_path = Pathname(Rails.root) + "/assets/Book1.xlsx"
                         excel = Roo::Spreadsheet.open(file_path)
                         sheet = excel.sheet('Sheet1')
 
