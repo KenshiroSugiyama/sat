@@ -3,7 +3,14 @@ class LinebotController < ApplicationController
     require "net/http"
     require "json"
 
-    protect_from_forgery #追記
+    protect_from_forgery 
+
+    #excel 指定
+    name = "Book1"
+    excel = Roo::Spreadsheet.open("./#{name}.xlsx")
+    sheet = excel.sheet('Sheet1')
+
+
     def callback
         body = request.body.read
         signature = request.env['HTTP_X_LINE_SIGNATURE']
@@ -13,14 +20,26 @@ class LinebotController < ApplicationController
         events = client.parse_events_from(body)
     
         events.each do |event|
+            uid = event['source']['userId']
             case event
-            when Line::Bot::Event::Follow
-                uid = event['source']['userId']
+            when Line::Bot::Event::Follow then
                 message = {
                     "type": "text",
-                    "text": "登録完了！\r\nあなたのuserIdは[#{uid}]です。\r\nuserIdを堅志郎まで送ってね！"
+                    "text": "登録完了！\r\nあなたのidは\r\n[#{uid}]\r\nです\r\nidを堅志郎に個チャで送ってね！"
                   }
                   client.reply_message(event['replyToken'], message)
+            when Line::Bot::Event::Message then
+                case event.type
+                when Line::Bot::Event::MessageType::Text
+                    e = event.message['text']
+                    if e.eql?('データ確認')
+                        message = {
+                            "type": "text",
+                            "text": "名前：#{sheet.row(1)[0]}"
+                          }
+                        client.reply_message(event['replyToken'], message)
+                    end
+                end
             end
         end
         head :ok
