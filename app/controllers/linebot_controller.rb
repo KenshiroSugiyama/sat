@@ -1,9 +1,8 @@
 class LinebotController < ApplicationController
     require 'line/bot'
-    require "net/http"
-    require "json"
-
+    
     protect_from_forgery 
+
 
     def callback
         body = request.body.read
@@ -21,21 +20,21 @@ class LinebotController < ApplicationController
                     "type": "text",
                     "text": "登録完了！\r\nあなたのidは\r\n[#{uid}]\r\nです\r\nidを堅志郎に個チャで送ってね！"
                   }
-                  client.reply_message(event['replyToken'], message)
+                #user作成　uidをdbに保存　nameはラインの名前と違うからここで保存しない
+                User.create(uid: uid)
             when Line::Bot::Event::Message then
                 case event.type
                 when Line::Bot::Event::MessageType::Text
                     e = event.message['text']
                     if e.eql?('データ確認')
                         #excel 指定
-                        #name = "Book1"
-                        #file_path = Pathname(Rails.root) + "/assets/Book1.xlsx"
-                        excel = Roo::Spreadsheet.open("app/assets/Book1.xlsx")
+                        name = User.find_by(uid: uid).name
+                        excel = Roo::Spreadsheet.open("app/assets/#{name}.xlsx")
                         sheet = excel.sheet('Sheet1')
 
                         message = {
                             "type": "text",
-                            "text": "名前：#{sheet.row(1)[0]}"
+                            "text": "名前：#{sheet.row(1)[0]}\b\n"
                           }
                     else
                         message = {
@@ -43,9 +42,9 @@ class LinebotController < ApplicationController
                             "text": "例外処理OK!"
                         }
                     end
-                    client.reply_message(event['replyToken'], message)
                 end
             end
+            client.reply_message(event['replyToken'], message)
         end
         head :ok
     end
