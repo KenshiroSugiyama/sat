@@ -29,15 +29,15 @@ class LinebotController < ApplicationController
                     if e.eql?('データ確認')
                         #excel 指定
                         name = User.find_by(uid: uid).name
-                        excel = Roo::Spreadsheet.open("app/assets/#{name}.xlsx")
-                        sheet = excel.sheet('Sheet1')
+                        excel = Roo::Spreadsheet.open("app/assets/Book.xlsx")
+                        sheet = excel.sheet("#{name}")
 
                         message = {
                             "type": "text",
-                            "text": "名前：#{sheet.row(1)[0]}\b\n"
-                          }
+                            "text": "\b\n#{sheet.row(1)[18]}：#{sheet.row(2)[18]}\b\n#{sheet.row(1)[19]}：#{sheet.row(2)[19]}\b\n#{sheet.row(1)[20]}：#{sheet.row(2)[20]}\b\n#{sheet.row(1)[21]}：#{sheet.row(2)[21]}\b\n#{sheet.row(1)[22]}：#{sheet.row(2)[22]}\b\n#{sheet.row(1)[23]}：#{sheet.row(2)[23]}\b\n#{sheet.row(1)[24]}：#{sheet.row(2)[24]}\b\n#{sheet.row(1)[25]}：#{sheet.row(2)[25]}\b\n#{sheet.row(1)[26]}：#{sheet.row(2)[26]}\b\n#{sheet.row(1)[27]}：#{sheet.row(2)[27]}\b\n#{sheet.row(1)[28]}：#{sheet.row(2)[28]}\b\n#{sheet.row(1)[29]}：#{sheet.row(2)[29]}\b\n#{sheet.row(1)[30]}：#{sheet.row(2)[30]}\b\n#{sheet.row(1)[31]}：#{sheet.row(2)[31]}\b\n#{sheet.row(1)[32]}：#{sheet.row(2)[32]}\b\n#{sheet.row(1)[33]}：#{sheet.row(2)[33]}\b\n#{sheet.row(1)[34]}：#{sheet.row(2)[34]}\b\n#{sheet.row(1)[35]}：#{sheet.row(2)[35]}\b\n#{sheet.row(1)[36]}：#{sheet.row(2)[36]}\b\n#{sheet.row(1)[37]}：#{sheet.row(2)[37]}\b\n#{sheet.row(1)[38]}：#{sheet.row(2)[38]}\b\n#{sheet.row(1)[39]}：#{sheet.row(2)[39]}"                       
+                             }
                     else
-                        message = {
+                        message = {sheet.row(2)[0]
                             "type": "text",
                             "text": "例外処理OK!"
                         }
