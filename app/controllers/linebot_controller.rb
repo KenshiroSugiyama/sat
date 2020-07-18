@@ -3,6 +3,8 @@ class LinebotController < ApplicationController
 
     protect_from_forgery 
 
+    def send
+    end
 
     def callback
         body = request.body.read
