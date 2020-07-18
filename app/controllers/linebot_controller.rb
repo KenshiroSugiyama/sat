@@ -3,7 +3,7 @@ class LinebotController < ApplicationController
 
     protect_from_forgery 
 
-    def send
+    def send_message
     end
 
     def callback
