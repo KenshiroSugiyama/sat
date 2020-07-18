@@ -1,6 +1,6 @@
 class LinebotController < ApplicationController
     require 'line/bot'
-    
+
     protect_from_forgery 
 
 
@@ -29,7 +29,7 @@ class LinebotController < ApplicationController
                     if e.eql?('データ確認')
                         #excel 指定
                         name = User.find_by(uid: uid).name
-                        excel = Roo::Spreadsheet.open("app/assets/Book.xlsx")
+                        excel = Roo::Spreadsheet.open("app/assets/test.xlsx")
                         sheet = excel.sheet("#{name}")
 
                         message = {
@@ -48,6 +48,15 @@ class LinebotController < ApplicationController
         end
         head :ok
     end
+
+    # def push
+    #     message = {
+    #         type: 'text',
+    #         text: "#{sheet.row(1)[0]}：#{sheet.row(2)[0]}\b\n#{sheet.row(1)[1]}：#{sheet.row(2)[1]}\b\n#{sheet.row(1)[2]}：#{sheet.row(2)[2]}\b\n#{sheet.row(1)[3]}：#{sheet.row(2)[3]}\b\n#{sheet.row(1)[4]}：#{sheet.row(2)[4]}\b\n#{sheet.row(1)[5]}：#{sheet.row(2)[5]}\b\n#{sheet.row(1)[6]}：#{sheet.row(2)[6]}\b\n#{sheet.row(1)[7]}：#{sheet.row(2)[7]}\b\n#{sheet.row(1)[8]}：#{sheet.row(2)[8]}\b\n#{sheet.row(1)[9]}：#{sheet.row(2)[9]}\b\n#{sheet.row(1)[10]}：#{sheet.row(2)[10]}\b\n#{sheet.row(1)[11]}：#{sheet.row(2)[11]}\b\n#{sheet.row(1)[12]}：#{sheet.row(2)[12]}\b\n#{sheet.row(1)[13]}：#{sheet.row(2)[13]}\b\n#{sheet.row(1)[14]}：#{sheet.row(2)[14]}\b\n#{sheet.row(1)[15]}：#{sheet.row(2)[15]}\b\n#{sheet.row(1)[16]}：#{sheet.row(2)[16]}\b\n#{sheet.row(1)[17]}：#{sheet.row(2)[17]}\b\n#{sheet.row(1)[18]}：#{sheet.row(2)[18]}\b\n#{sheet.row(1)[19]}：#{sheet.row(2)[19]}\b\n#{sheet.row(1)[20]}：#{sheet.row(2)[20]}\b\n#{sheet.row(1)[21]}：#{sheet.row(2)[21]}\b\n#{sheet.row(1)[22]}：#{sheet.row(2)[22]}\b\n#{sheet.row(1)[23]}：#{sheet.row(2)[23]}\b\n#{sheet.row(1)[24]}：#{sheet.row(2)[24]}\b\n#{sheet.row(1)[25]}：#{sheet.row(2)[25]}\b\n#{sheet.row(1)[26]}：#{sheet.row(2)[26]}\b\n#{sheet.row(1)[27]}：#{sheet.row(2)[27]}\b\n#{sheet.row(1)[28]}：#{sheet.row(2)[28]}\b\n#{sheet.row(1)[29]}：#{sheet.row(2)[29]}\b\n#{sheet.row(1)[30]}：#{sheet.row(2)[30]}\b\n#{sheet.row(1)[31]}：#{sheet.row(2)[31]}\b\n#{sheet.row(1)[32]}：#{sheet.row(2)[32]}\b\n#{sheet.row(1)[33]}：#{sheet.row(2)[33]}\b\n#{sheet.row(1)[34]}：#{sheet.row(2)[34]}\b\n#{sheet.row(1)[35]}：#{sheet.row(2)[35]}\b\n#{sheet.row(1)[36]}：#{sheet.row(2)[36]}\b\n#{sheet.row(1)[37]}：#{sheet.row(2)[37]}\b\n#{sheet.row(1)[38]}：#{sheet.row(2)[38]}\b\n#{sheet.row(1)[39]}：#{sheet.row(2)[39]}"
+    #       } 
+    #       uid = User.first.uid
+    #       client.push_message(uid, message)
+    # end
 
 
     private
