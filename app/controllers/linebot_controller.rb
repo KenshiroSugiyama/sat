@@ -63,6 +63,7 @@ class LinebotController < ApplicationController
             } 
             client.push_message(user.uid, message)
         end
+        redirect_to root_path
     end
 
 
