@@ -97,10 +97,7 @@ class LinebotController < ApplicationController
                 "defaultAction": {
                     "type": "uri",
                     "label": "東京遠征 vs東工大",
-                    "uri": "https://youtu.be/s2ZfufdfReU",
-                    "altUri": {
-                    "desktop" : "https://youtu.be/s2ZfufdfReU"
-                    }
+                    "uri": "https://youtu.be/s2ZfufdfReU"
                 },
                 "actions": [
                     {
