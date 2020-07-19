@@ -64,6 +64,7 @@ class LinebotController < ApplicationController
             client.push_message(user.uid, message)
         end
         redirect_to root_path
+        flash[:success] = '送信完了！！'
     end
 
 
