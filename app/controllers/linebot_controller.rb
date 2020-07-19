@@ -109,49 +109,49 @@ class LinebotController < ApplicationController
                         "uri": "https://youtu.be/s2ZfufdfReU"
                     }
                 ]
-                },
-                {
-                    "thumbnailImageUrl": "https://sports-pctr.c.yimg.jp/r/iwiz-amd/20200716-00899820-sportiva-000-1-view.jpg?cx=0&cy=0&cw=800&ch=500",
-                    "imageBackgroundColor": "#FFFFFF",
-                    "title": "東京遠征 vs上智大",
-                    "text": "description",
-                    "defaultAction": {
-                        "type": "uri",
-                        "label": "東京遠征 vs上智大",
-                        "uri": "https://youtu.be/s2ZfufdfReU",
-                        "altUri": {
-                        "desktop" : "https://youtu.be/s2ZfufdfReU"
-                        }
-                    },
-                    "actions": [
-                        {
-                            "type": "uri",
-                            "label": "選択",
-                            "uri": "https://youtu.be/s2ZfufdfReU"
-                        }
-                    ]
-                    },
-                    {
-                        "thumbnailImageUrl": "https://i.ytimg.com/vi/XDUSY7qZqus/maxresdefault.jpg",
-                        "imageBackgroundColor": "#FFFFFF",
-                        "title": "東京遠征 vs東農大",
-                        "text": "description",
-                        "defaultAction": {
-                            "type": "uri",
-                            "label": "東京遠征 vs東農大",
-                            "uri": "https://youtu.be/s2ZfufdfReU",
-                            "altUri": {
-                            "desktop" : "https://youtu.be/s2ZfufdfReU"
-                            }
-                        },
-                        "actions": [
-                            {
-                                "type": "uri",
-                                "label": "選択",
-                                "uri": "https://youtu.be/s2ZfufdfReU"
-                            }
-                        ]
-                    }
+                }
+                # {
+                #     "thumbnailImageUrl": "https://sports-pctr.c.yimg.jp/r/iwiz-amd/20200716-00899820-sportiva-000-1-view.jpg?cx=0&cy=0&cw=800&ch=500",
+                #     "imageBackgroundColor": "#FFFFFF",
+                #     "title": "東京遠征 vs上智大",
+                #     "text": "description",
+                #     "defaultAction": {
+                #         "type": "uri",
+                #         "label": "東京遠征 vs上智大",
+                #         "uri": "https://youtu.be/s2ZfufdfReU",
+                #         "altUri": {
+                #         "desktop" : "https://youtu.be/s2ZfufdfReU"
+                #         }
+                #     },
+                #     "actions": [
+                #         {
+                #             "type": "uri",
+                #             "label": "選択",
+                #             "uri": "https://youtu.be/s2ZfufdfReU"
+                #         }
+                #     ]
+                # },
+                #     {
+                #         "thumbnailImageUrl": "https://i.ytimg.com/vi/XDUSY7qZqus/maxresdefault.jpg",
+                #         "imageBackgroundColor": "#FFFFFF",
+                #         "title": "東京遠征 vs東農大",
+                #         "text": "description",
+                #         "defaultAction": {
+                #             "type": "uri",
+                #             "label": "東京遠征 vs東農大",
+                #             "uri": "https://youtu.be/s2ZfufdfReU",
+                #             "altUri": {
+                #             "desktop" : "https://youtu.be/s2ZfufdfReU"
+                #             }
+                #         },
+                #         "actions": [
+                #             {
+                #                 "type": "uri",
+                #                 "label": "選択",
+                #                 "uri": "https://youtu.be/s2ZfufdfReU"
+                #             }
+                #         ]
+                #     }
           ],
           "imageAspectRatio": "rectangle",
           "imageSize": "cover"
