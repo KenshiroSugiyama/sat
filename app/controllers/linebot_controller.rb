@@ -22,6 +22,8 @@ class LinebotController < ApplicationController
                     "type": "text",
                     "text": "登録完了！\r\nあなたのidは\r\n[#{uid}]\r\nです\r\nidを堅志郎に個チャで送ってね！"
                   }
+                client.reply_message(event['replyToken'], message) 
+
                 #user作成　uidをdbに保存　nameはラインの名前と違うからここで保存しない
                 User.create(uid: uid)
             when Line::Bot::Event::Message then
@@ -41,12 +43,6 @@ class LinebotController < ApplicationController
                         client.reply_message(event['replyToken'], message)
                     elsif e.eql?('過去の試合映像')
                         client.reply_message(event['replyToken'], template) 
-                    else
-                        message = {
-                            "type": "text",
-                            "text": "例外処理OK!"
-                        }
-                        client.reply_message(event['replyToken'], message)
                     end
                 end
             end
