@@ -43,6 +43,12 @@ class LinebotController < ApplicationController
                         client.reply_message(event['replyToken'], message)
                     elsif e.eql?('過去の試合映像')
                         client.reply_message(event['replyToken'], template) 
+                    else 
+                        message = {
+                            "type": "text",
+                            "text": "うるさいブス"                       
+                             }
+                        client.reply_message(event['replyToken'], message)
                     end
                 end
             end
