@@ -32,7 +32,7 @@ class LinebotController < ApplicationController
             when Line::Bot::Event::Follow then
                 message = {
                     "type": "text",
-                    "text": "登録完了！\r\n以下のリンクから名前を登録してね！\b\nhttps://sat.herokuapp.com/name?uid=#{uid}"
+                    "text": "登録完了！\r\n以下のリンクから名前を登録してね！\b\nhttps://hokudaisat.herokuapp.com/name?uid=#{uid}"
                   }
                 client.reply_message(event['replyToken'], message) 
 
