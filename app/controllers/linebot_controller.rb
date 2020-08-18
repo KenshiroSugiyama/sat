@@ -3,6 +3,18 @@ class LinebotController < ApplicationController
 
     protect_from_forgery 
 
+    def name
+    end
+
+    def create
+        user = User.find_by(uid: params[:uid])
+
+        if user.update(name: params[:name])
+            redirect_to name_path
+            flash[:success] = '登録完了！LINEに戻ってね！'
+        end
+    end
+
     def send_message
     end
 
@@ -20,7 +32,7 @@ class LinebotController < ApplicationController
             when Line::Bot::Event::Follow then
                 message = {
                     "type": "text",
-                    "text": "登録完了！\r\nあなたのidは\r\n[#{uid}]\r\nです\r\nidを堅志郎に個チャで送ってね！"
+                    "text": "登録完了！\r\n以下のリンクから名前を登録してね！\b\nhttps://sat.herokuapp.com/name?uid=#{uid}"
                   }
                 client.reply_message(event['replyToken'], message) 
 
@@ -44,9 +56,10 @@ class LinebotController < ApplicationController
                     elsif e.eql?('過去の試合映像')
                         client.reply_message(event['replyToken'], template) 
                     else 
+                        rep = ["うるさいブス","は？","ブス","話しかけんな"]
                         message = {
                             "type": "text",
-                            "text": "うるさいブス"                       
+                            "text": rep.sample                   
                              }
                         client.reply_message(event['replyToken'], message)
                     end
