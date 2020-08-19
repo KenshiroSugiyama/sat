@@ -1,4 +1,11 @@
 <div class="m-5 text-center">
+    <div class="my-3">登録済み一覧</div>
+    <div class="row mb-4">
+        <div class="mb-2 col-6">名前</div><div class="mb-2 col-6">uid</div>
+        <% @user.each do |user|%>      
+            <div class="col-6"><%= user.name %></div><div class="col-6"><%= user.uid%></div>
+        <% end %>
+    </div>
     <div>全員にデータを送信しますか？</div>
     <%= button_to '送信', '/push', method: :post,class: "btn btn-info mt-3" %>
 </div>

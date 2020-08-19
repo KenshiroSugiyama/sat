@@ -16,6 +16,7 @@ class LinebotController < ApplicationController
     end
 
     def send_message
+        @user = User.where.not(name: nil)
     end
 
     def callback
