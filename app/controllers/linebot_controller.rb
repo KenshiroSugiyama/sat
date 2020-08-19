@@ -140,13 +140,13 @@ class LinebotController < ApplicationController
                     "defaultAction": {
                         "type": "uri",
                         "label": "東京遠征 vs上智大",
-                        "uri": "https://www.youtube.com/watch?v=X4aikeIfm-8"
+                        "uri": "https://www.youtube.com/watch?v=DcIzzZMvIlE"
                     },
                     "actions": [
                         {
                             "type": "uri",
                             "label": "選択",
-                            "uri": "https://www.youtube.com/watch?v=X4aikeIfm-8"
+                            "uri": "https://www.youtube.com/watch?v=DcIzzZMvIlE"
                         }
                     ]
                 },
@@ -158,13 +158,13 @@ class LinebotController < ApplicationController
                         "defaultAction": {
                             "type": "uri",
                             "label": "東京遠征 vs東農大",
-                            "uri": "https://www.youtube.com/watch?v=DcIzzZMvIlE"
+                            "uri": "https://www.youtube.com/watch?v=daCyAlujqdU"
                         },
                         "actions": [
                             {
                                 "type": "uri",
                                 "label": "選択",
-                                "uri": "https://www.youtube.com/watch?v=DcIzzZMvIlE"
+                                "uri": "https://www.youtube.com/watch?v=daCyAlujqdU"
                             }
                         ]
                     }
