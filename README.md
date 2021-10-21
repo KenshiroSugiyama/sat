@@ -1,24 +1,17 @@
-# README
+# sat
+**Overview**  
+This is an app that **sends the analysis result** of the match to the personal message app of the football team I belong to.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<br>
+## Description
+This app was written in Ruby.<br>I chose Ruby on Rails as framework.<br>
+Team members will automatically receive the analysis results as a message on their smartphones after the analysis results are available.<br>
+This app can be used on **LINE (messaging app)**. So you don't need to open the web app and **it's easy to use**.<br>
 
-Things you may want to cover:
+## Notable Point
+Used the LINE API (message app)<br>
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  
